@@ -1,0 +1,6 @@
+@MapplicsEjercicio2.API_HostAddress = http://localhost:5012
+
+GET {{MapplicsEjercicio2.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
