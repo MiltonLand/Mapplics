@@ -10,6 +10,7 @@ namespace MapplicsEjercicio2.Domain.Interfaces
     public interface IProductRepository
     {
         Task<IEnumerable<Product>> Get();
+        Task<IEnumerable<Product>> GetAllProductsByCategory(int id);
         Task<Product?> Get(int id);
         Task Create(Product product);
         Task Update(Product product);

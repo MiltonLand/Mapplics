@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MapplicsEjercicio2.Domain.Entities
@@ -21,6 +23,8 @@ namespace MapplicsEjercicio2.Domain.Entities
         public int Quantity { get; set; }
         [MaxLength(200)]
         public string? Description { get; set; }
+        [JsonIgnore]
+        public int CategoryId { get; set; }
         [Required]
         public required Category Category { get; set; }
     }

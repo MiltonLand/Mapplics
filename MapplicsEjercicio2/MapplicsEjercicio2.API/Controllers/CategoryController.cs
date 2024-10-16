@@ -7,8 +7,6 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace MapplicsEjercicio2.API.Controllers
 {
     [Route("api/[controller]")]
@@ -17,32 +15,23 @@ namespace MapplicsEjercicio2.API.Controllers
     {
         private readonly IMediator _mediator;
 
-        //private readonly ICategoryRepository _categoryRepository;
-
-        //public CategoryController(ICategoryRepository categoryRepository)
-        //{
-        //    _categoryRepository = categoryRepository;
-        //}
-
         public CategoryController(IMediator mediator)
         {
             _mediator = mediator;
         }
-        // GET: api/<CategoryController>
+
         [HttpGet]
         public async Task<IEnumerable<Category>> Get()
         {
             return await _mediator.Send(new GetAllCategoryQuery());
         }
 
-        // GET api/<CategoryController>/5
         [HttpGet("{id}")]
         public async Task<Category?> Get(int id)
         {
             return await _mediator.Send(new GetCategoryQuery(id));
         }
 
-        // POST api/<CategoryController>
         [HttpPost]
         public async Task<Category> Post(string name, string desc)
         {
@@ -55,7 +44,6 @@ namespace MapplicsEjercicio2.API.Controllers
             await _mediator.Send(new UpdateCategoryCommand(category));
         }
 
-        // DELETE api/<CategoryController>/5
         [HttpDelete]
         public async Task Delete([FromBody] Category category)
         {
